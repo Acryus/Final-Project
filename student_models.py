@@ -6,10 +6,9 @@ class Student(ndb.Model):
     email = ndb.StringProperty(required=True)
     college = ndb.StringProperty(required=True)
     zipCode = ndb.StringProperty(required=True)
-    areasOfInterests = ndb.StringProperty(required=True)
-    areasOfHelp = ndb.StringProperty(required=True)
 
-class House(ndb.Model):
-      name = ndb.StringProperty(required=True)
-      mascot = ndb.StringProperty(required=False)
-      students = ndb.KeyProperty(Student, repeated=True)
+class areasOfInterest(ndb.Model):
+      interests = ndb.KeyProperty(Student, repeated=True)
+
+class areasOfHelp(ndb.Model):
+    help = ndb.KeyProperty(Student, repeated=True)
