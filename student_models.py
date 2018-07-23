@@ -1,8 +1,8 @@
 from google.appengine.ext import ndb
 
 class Student(ndb.Model):
-    firstName =  ndb.StringProperty(required=True)
-    lastName =  ndb.StringProperty(required=True)
+    firstName = ndb.StringProperty(required=True)
+    lastName = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     college = ndb.StringProperty(required=True)
     major = ndb.StringProperty(required=True)

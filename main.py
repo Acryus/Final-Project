@@ -26,10 +26,24 @@ class SignUpHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+class SignInHandler(webapp2.RequestHandler):
+    def get(self):
+        signUpTemplate = jinja_env.get_template("")
+        html = main_template.render()
+        self.response.write(html)
+
+class SearchHandler(webapp2.RequestHandler):
+    def get(self):
+        signUpTemplate = jinja_env.get_template("")
+        html = main_template.render()
+        self.response.write(html)
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/list', ListHandler),
     ('/profile/' + #nameofStudent
     ,ProfileHandler)
+    ("/search", SearchHandler)
     ('/signup', SignUpHandler)
+    ('/signin', SignInHandler)
 ], debug=True)
