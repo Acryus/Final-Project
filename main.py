@@ -8,23 +8,28 @@ jina_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class MainHandler(webapp2.RequestHandler):
+class HomeHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write("Welcome to Hogwarts' Online Portal")
+        home_template = jinja_env.get_template(#input Ritu's template with quotations)
 
-class HouseHandler(webapp2.RequestHandler):
+class ListHandler(webapp2.RequestHandler):
     def get(self):
-        hogwarts_houses = House.query().order(House.name).fetch()
-        start_template = jinja_env.get_template("templates/houselist.html")
-        self.response.write(start_template.render({'house_info' : hogwarts_houses}))
+        list_template = jinja_env.get_template(#input Ritu's template with quotations)
+        self.response.write(start_template.render()
 
-class LoadDataHandler(webapp2.RequestHandler):
+class ProfileHandler(webapp2.RequestHandler):
     def get(self):
-        seed_data()
 
+class SignUpHandler(webapp2.RequestHandler):
+    def get(self):
+        signUpTemplate = jinja_env.get_template("templates/createProfile.html")
+        html = main_template.render()
+        self.response.write(html)
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/houses', HouseHandler),
-    ('/seed-data', LoadDataHandler)
+    ('/', HomeHandler),
+    ('/list', ListHandler),
+    ('/profile/' + #nameofStudent
+    ,ProfileHandler)
+    ('/signup', SignUpHandler)
 ], debug=True)

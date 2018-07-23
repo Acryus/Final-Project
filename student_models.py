@@ -10,7 +10,7 @@ class Student(ndb.Model):
     description = ndb.StringProperty(required=True)
 
 class areasOfInterest(ndb.Model):
-    interests = ndb.KeyProperty(Student, repeated=True)
+    interests = ndb.KeyProperty(Student, repeated=True, required = False)
 
 class areasOfHelp(ndb.Model):
-    help = ndb.KeyProperty(Student, repeated=True)
+    help = ndb.KeyProperty(Student, repeated=True, required = False)
