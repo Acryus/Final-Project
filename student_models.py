@@ -8,5 +8,5 @@ class Student(ndb.Model):
     college = ndb.StringProperty(required=True)
     major = ndb.StringProperty(required=True)
     description = ndb.StringProperty(required=True)
-    interests = ndb.KeyProperty(repeated=True)
-    help = ndb.KeyProperty(repeated=True)
+    interests = ndb.StringProperty(repeated=True)
+    help = ndb.StringProperty(repeated=True)
