@@ -7,7 +7,6 @@ class Student(ndb.Model):
     password = ndb.StringProperty(required=True)
     college = ndb.StringProperty(required=True)
     major = ndb.StringProperty(required=True)
-    ##zipCode = ndb.StringProperty(required=True)
     description = ndb.StringProperty(required=True)
     connections = ndb.StringProperty(repeated=True,required=False)
 

@@ -3,21 +3,22 @@
     <title>uniSource</title>
   </head>
   <body>
-    <form autocomplete="off" action="/">
+    <form autocomplete="off" action="/HomeHandler">
+      Welcome to our site!  Please sign up: <br>
       <dl>
 
       <dt>
-        <label for "firstName">First Name:</label>
+        <label for "first_name">First Name:</label>
       </dt>
       <dd>
-        <input id="firstName" name="firstName" class = "format" type="text">
+        <input id="first_name" name="first_name" class = "format" type="text">
       </dd>
 
       <dt>
-        <label for "lastName">Last Name:</label>
+        <label for "last_name">Last Name:</label>
       </dt>
       <dd>
-        <input id="lastName" name="lastName" class = "format" type="text">
+        <input id="last_name" name="last_name" class = "format" type="text">
       </dd>
 
 
@@ -40,20 +41,6 @@
         <input id="major" name="major" class = "format" type="text">
       </dd>
 
-      <dt>
-        <label for "email">Email:</label>
-      </dt>
-      <dd>
-        <input id="email" name="email" class = "format" type="text">
-      </dd>
-
-      <dt>
-        <label for "password">Password:</label>
-      </dt>
-      <dd>
-        <input id="password" name="password" class = "format" type="text">
-      </dd>
-
        <dt>
          <label for="description" class="format">Description - Tell Us More About Yourself:</label>
        </dt>
@@ -61,6 +48,7 @@
          <textarea rows="4" cols="100" id="description" class="profile_form" name="desc"></textarea>
        </dd>
       </dl>
+
       <input type="submit" value="Sign Up!">
     </form>
   </body>
