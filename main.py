@@ -41,7 +41,7 @@ class SearchHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/list', ListHandler),
-    ('/profile/' + #nameofStudent
+    ('/profile/' # + nameofStudent
     ,ProfileHandler)
     ("/search", SearchHandler)
     ('/signup', SignUpHandler)
