@@ -30,13 +30,13 @@ class WelcomeHandler(webapp2.RequestHandler):
           else:
               template = jinja_env.get_template("templates/createProfile.html")
               self.response.write(template.render({
-              'first_name' : firstName
-              "last_name" : lastName
-              "college": college
-              "state": state
-              "major": major
-              "description": description
-              "interests": interests
+              'first_name' : firstName,
+              "last_name" : lastName,
+              "college": college,
+              "state": state,
+              "major": major,
+              "description": description,
+              "interests": interests,
               "help": help
               }))
 
@@ -84,7 +84,7 @@ app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
     ('/home', HomeHandler)
     ('/list', ListHandler),
-    ('/profile/' # + nameofStudent
+    ('/profile/' # + nameOfStudent
     ,ProfileHandler)
     ("/search", SearchHandler)
 ], debug=True)
