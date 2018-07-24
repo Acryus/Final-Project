@@ -13,8 +13,8 @@ class HomeHandler(webapp2.RequestHandler):
         home_template = jinja_env.get_template("templates/homepage.html")
 class ListHandler(webapp2.RequestHandler):
     def get(self):
-        list_template = jinja_env.get_template()#input Ritu's template with quotations)
-        self.response.write(start_template.render())
+        list_template = jinja_env.get_template("templates/listpage.html")#input Ritu's template with quotations)
+        self.response.write(list_template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):

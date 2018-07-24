@@ -7,12 +7,6 @@ class Student(ndb.Model):
     password = ndb.StringProperty(required=True)
     college = ndb.StringProperty(required=True)
     major = ndb.StringProperty(required=True)
-    ##zipCode = ndb.StringProperty(required=True)
     description = ndb.StringProperty(required=True)
-    connections = ndb.StringProperty(repeated=True,required=False)
-
-class areasOfInterest(ndb.Model):
-    interests = ndb.KeyProperty(Student, repeated=True, required = False)
-
-class areasOfHelp(ndb.Model):
-    help = ndb.KeyProperty(Student, repeated=True, required = False)
+    interests = ndb.KeyProperty(repeated=True)
+    help = ndb.KeyProperty(repeated=True)
