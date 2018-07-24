@@ -3,6 +3,92 @@
     <title>uniSource</title>
   </head>
   <body>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+      font-family: Arial;
+      padding: 10px;
+      background: #f1f1f1;
+  }
+
+
+  .header {
+      font-family: Jazz LET, fantasy;
+      padding: 30px;
+      text-align: center;
+      background:MediumSeaGreen	;
+  }
+
+  .header h1 {
+      font-size: 50px
+      ;
+  }
+
+  /* Style the top navigation bar */
+  .topnav {
+      overflow: hidden;
+      background-color: #333;
+  }
+
+  /* Style the topnav links */
+  .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+  }
+
+  /* Change color on hover */
+  .topnav a:hover {
+      background-color: #ddd;
+      color: darkgreen;
+  }
+
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+      float: left;
+      width: 75%;
+  }
+
+  /* Right column */
+  .rightcolumn {
+      float: left;
+      width: 25%;
+      background-color: #f1f1f1;
+      padding-left: 20px;
+  }
+
+  /* Add a card effect for articles */
+  .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  /* Footer */
+  .footer {
+      padding: 20px;
+      text-align: center;
+      background: MediumSeaGreen;
+      margin-top: 20px
+      ;
+  }
+  </style>
+
+
     <form autocomplete="off" action="/">
       <dl>
 
@@ -10,15 +96,18 @@
         <label for "firstName">First Name:</label>
       </dt>
       <dd>
+        <p></p>
         <input id="firstName" name="firstName" class = "format" type="text">
       </dd>
 
       <dt>
+        <p></p>
         <label for "lastName">Last Name:</label>
       </dt>
       <dd>
         <input id="lastName" name="lastName" class = "format" type="text">
       </dd>
+      <p></p>
 
       <dt>
         <label for "college">College:</label>
@@ -26,35 +115,35 @@
       <dd>
         <input id="college" name="college" class = "autocomplete" type="text">
       </dd>
-
+<p></p>
       <dt>
         <label for "state">State (of college):</label>
       </dt>
       <dd>
         <input id="state" name="state" class = "autocomplete" type="text">
       </dd>
-
+<p></p>
       <dt>
         <label for "major">Major:</label>
       </dt>
       <dd>
         <input id="major" name="major" class = "format" type="text">
       </dd>
-
+<p></p>
       <dt>
         <label for "email">Email:</label>
       </dt>
       <dd>
         <input id="email" name="email" class = "format" type="text">
       </dd>
-
+<p></p>
       <dt>
         <label for "password">Password:</label>
       </dt>
       <dd>
         <input id="password" name="password" class = "format" type="text">
       </dd>
-
+<p></p>
        <dt>
          <label for="description" class="format">Description - Tell Us More About Yourself:</label>
        </dt>
@@ -62,6 +151,7 @@
          <textarea rows="4" cols="100" id="description" class="profile_form" name="desc"></textarea>
        </dd>
       </dl>
+  <p></p>
       <input type="submit" value="Sign Up!">
     </form>
   </body>
