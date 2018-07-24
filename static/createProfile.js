@@ -133,9 +133,16 @@ document.addEventListener("click", function (e) {
 });
 }
 x = 1;
-function addRow(){
-  var d = document.getElementById('div');
-     d.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+y = 1;
+function addRow(target){
+  var str = document.getElementById('div');
+  var weak = document.getElementById('div2');
+  if(x == 1){
+    str.innerHTML += "<br > <input type='text' id='tst"+ x++ +"'><br >";
+  }
+  else{
+     str.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+   }
 }
 
 let massuni = document.querySelector('#college');
