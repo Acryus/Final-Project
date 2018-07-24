@@ -1,0 +1,44 @@
+body {background: #ffffff; margin: 0; padding: 0;}
+a {color: #2b2bf6;}
+#container {width: 1000px;
+   margin: 0;
+    padding: 0;}
+
+
+#header {
+  width: 1400px;
+  height: 200px;
+  margin: 10;
+  padding: 20;
+  border: 10;
+  background-image: url("static/Bg1");
+  }
+#sidebar {
+  width: 500px;
+  height: 500px;
+  margin: 0; padding: 0;
+  border: 0; float: left;
+  background: #f0e811;
+}
+#content {width: 900px;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+  background: #8be0ef;
+}
+#footer {width: 1400px;
+	height: 80px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  float: left;
+  background: #000000
+color:white;
+font-size: 16px;
+}
+
+ body {
+     background-color: lightblue;
+ }
