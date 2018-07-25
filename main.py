@@ -18,7 +18,7 @@ class WelcomeHandler(webapp2.RequestHandler):
           email_address = user.nickname()
           cssi_user = Student.get_by_id(user.user_id())
           signout_link_html = '<a href="%s">sign out</a>' % (
-              users.create_logout_url('/HomeHandler'))
+              users.create_logout_url('/'))
           # If the user has previously been to our site, we greet them!
           if cssi_user:
             self.response.write('''
@@ -46,7 +46,7 @@ class WelcomeHandler(webapp2.RequestHandler):
           self.response.write('''
             Please log in to use our site! <br>
             <a href="%s">Sign in</a>''' % (
-              users.create_login_url('/')))
+              users.create_login_url('/signup')))
 
       def post(self):
         user = users.get_current_user()
@@ -69,7 +69,7 @@ class WelcomeHandler(webapp2.RequestHandler):
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template("templates/homepage.html")
-        self.response.write(home_template.render())
+        self.response.write(home_template.render( {"loginUrl" : users.create_login_url('/signup')}))
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
@@ -86,8 +86,8 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
-    ('/', WelcomeHandler),
-    ('/home', HomeHandler),
+    ('/signup', WelcomeHandler),
+    ('/', HomeHandler),
     ('/list', ListHandler),
     ('/profile/' # + nameOfStudent
     ,ProfileHandler),
