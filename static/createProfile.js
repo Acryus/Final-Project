@@ -34,7 +34,7 @@ let majors = ['Accounting','Actuarial Science',"Advertising","Agriculture","Agri
 "Public Relations","Real Estate","Recreation and Parks","Rehabilitation Services","Religious Studies","Secondary Education",
 "Sociology","Social Work","Special Education","Speech Communication","Speech Pathology and Audiology/Communication Disorder"
 ,"Statistics","Telecommunications","Theater","Wildlife and Fishery Science","Wildlife Technology","Womens Studies"
-]
+];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -131,6 +131,18 @@ function autocomplete(inp, arr) {
 document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
+}
+x = 1;
+y = 1;
+function addRow(target){
+  var str = document.getElementById('div');
+  var weak = document.getElementById('div2');
+  if(x == 1){
+    str.innerHTML += "<br > <input type='text' id='tst"+ x++ +"'><br >";
+  }
+  else{
+     str.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+   }
 }
 
 let massuni = document.querySelector('#college');
