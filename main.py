@@ -91,7 +91,11 @@ class ListHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
-        pass
+        profile_template = jinja_env.get_template("templates/profile.html")
+        all_students = Student.query().fetch()
+        self.response.write(list_template.render(
+            all_students = Student.query().fetch()
+        ))
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
