@@ -30,17 +30,15 @@ class WelcomeHandler(webapp2.RequestHandler):
           # If the user hasn't been to our site, we ask them to sign up
           else:
               template = jinja_env.get_template("templates/createProfile.html")
-              self.response.write(template.render({
-              'first_name' : Student.firstName,
-              "last_name" : Student.lastName,
-              "college": Student.college,
-              "state": Student.state,
-              "major": Student.major,
-              "description": Student.description#,
+              self.response.write(template.render())
+              #'first_name' : Student.firstName,
+             # "last_name" : Student.lastName,
+             # "state": Student.state,
+            #  "major": Student.major,
+            #  "desc": Student.description#,
               ##"interests": interests,
               ##"help": help
-              }))
-
+            #  }))
         # Otherwise, the user isn't logged in!
         else:
           self.response.write('''
@@ -60,7 +58,7 @@ class WelcomeHandler(webapp2.RequestHandler):
             college=self.request.get('college'),
             state=self.request.get('state'),
             major=self.request.get('major'),
-            description=self.request.get('descriptions'),
+            description=self.request.get('desc'),
             id=user.user_id())
         cssi_user.put()
         self.response.write('Thanks for signing up, %s!' %
