@@ -134,7 +134,7 @@ document.addEventListener("click", function (e) {
 }
 x = 1;
 y = 1;
-function addRow(target){
+/*function addRow(){
   var str = document.getElementById('div');
   var weak = document.getElementById('div2');
   if(x == 1){
@@ -143,11 +143,11 @@ function addRow(target){
   else{
      str.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
    }
-}
+}*/
 
 let massuni = document.querySelector('#college');
 let UsState = document.querySelector('#state');
-let major = document.querySelector('#major')
+let major = document.querySelector('#major');
 autocomplete(massuni, massUniversity);
 autocomplete(UsState, state);
-autocomplete(major, majors)
+autocomplete(major, majors);

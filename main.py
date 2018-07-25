@@ -1,10 +1,11 @@
 import webapp2
 import os
 import jinja2
+from student_models import Student
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-jina_env = jinja2.Environment(
+jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
@@ -15,37 +16,35 @@ class WelcomeHandler(webapp2.RequestHandler):
         # If the user is logged in...
         if user:
           email_address = user.nickname()
-          cssi_user = CssiUser.get_by_id(user.user_id())
+          cssi_user = Student.get_by_id(user.user_id())
           signout_link_html = '<a href="%s">sign out</a>' % (
-              users.create_logout_url('/HomeHandler'))
+              users.create_logout_url('/'))
           # If the user has previously been to our site, we greet them!
           if cssi_user:
             self.response.write('''
                 Welcome %s %s (%s)! <br> %s <br>''' % (
-                  cssi_user.first_name,
-                  cssi_user.last_name,
+                  cssi_user.firstName,
+                  cssi_user.lastName,
                   email_address,
                   signout_link_html))
           # If the user hasn't been to our site, we ask them to sign up
           else:
               template = jinja_env.get_template("templates/createProfile.html")
-              self.response.write(template.render({
-              'first_name' : firstName,
-              "last_name" : lastName,
-              "college": college,
-              "state": state,
-              "major": major,
-              "description": description,
-              "interests": interests,
-              "help": help
-              }))
-
+              self.response.write(template.render())
+              #'first_name' : Student.firstName,
+             # "last_name" : Student.lastName,
+             # "state": Student.state,
+            #  "major": Student.major,
+            #  "desc": Student.description#,
+              ##"interests": interests,
+              ##"help": help
+            #  }))
         # Otherwise, the user isn't logged in!
         else:
           self.response.write('''
             Please log in to use our site! <br>
             <a href="%s">Sign in</a>''' % (
-              users.create_login_url('/')))
+              users.create_login_url('/signup')))
 
       def post(self):
         user = users.get_current_user()
@@ -53,18 +52,22 @@ class WelcomeHandler(webapp2.RequestHandler):
           # You shouldn't be able to get here without being logged in
           self.error(500)
           return
-        cssi_user = CssiUser(
-            first_name=self.request.get('first_name'),
-            last_name=self.request.get('last_name'),
+        cssi_user = Student(
+            firstName=self.request.get('first_name'),
+            lastName=self.request.get('last_name'),
+            college=self.request.get('college'),
+            state=self.request.get('state'),
+            major=self.request.get('major'),
+            description=self.request.get('desc'),
             id=user.user_id())
         cssi_user.put()
         self.response.write('Thanks for signing up, %s!' %
-            cssi_user.first_name)
+            cssi_user.firstName)
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template("templates/homepage.html")
-        self.response.write(home_template.render())
+        self.response.write(home_template.render( {"loginUrl" : users.create_login_url('/signup')}))
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
@@ -73,7 +76,7 @@ class ListHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
-
+        pass
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         signUpTemplate = jinja_env.get_template("")
@@ -81,10 +84,10 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
-    ('/', WelcomeHandler),
-    ('/home', HomeHandler)
+    ('/signup', WelcomeHandler),
+    ('/', HomeHandler),
     ('/list', ListHandler),
     ('/profile/' # + nameOfStudent
-    ,ProfileHandler)
-    ("/search", SearchHandler)
+    ,ProfileHandler),
+    ("/search", SearchHandler),
 ], debug=True)
