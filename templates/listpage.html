@@ -3,11 +3,106 @@
     <title>Uni-Source: Find Peers</title>
   </head>
   <body>
-    <h1>Let's find your person.....</h1>
-    {% for student in all_students %}
-      <p>{{student.firstName}} </p>
-      <p>{{student.description}} </p>
-      </br>
-    {% endfor %}
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+        font-family: Jazz LET, fantasy;
+        padding: 10px;
+        background: #d5f4e6;
+    }
+    .header {
+        font-family: Jazz LET, fantasy;
+        padding: 30px;
+        text-align: center;
+        background:#80ced6	;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #618685;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: darkgreen;
+    }
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+
+    .footer {
+        padding: 20px;
+        text-align: center;
+        background: #80ced6;
+        margin-top: 20px
+        ;
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .leftcolumn, .rightcolumn {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+
+    @media screen and (max-width: 400px) {
+        .topnav a {
+            float: none;
+            width: 100%;
+        }
+    }
+    </style>
+    <div class="header">
+      <font size="10">uniSource</font>
+      <h2> Great! You've made your profile! You're just a Few steps away from finding the help you need!</h2>
+      <p><h3>Connecting peers for collaboration and a good time.</h3></p>
+    </div>
+
+    <div class="topnav">
+      <a href="search.html">Search</a>
+      <a href="#" style="float:right"> Welcome, User!</a>
+
+    </div>
+
+
+    <div class="card">
+      <h1>Let's find your person.....:</h1>
+      {% for student in all_students %}
+        <p>{{student.name}} </p>
+        <p>{{student.description}} </p>
+        </br>
+      {% endfor %}
+         </p>
+    </div>
+
+    <div class="card">
+          <h3>Having a problem?Tell us about it, so we can make your experience better!</h3>
+
+    <div class="footer">
+      <h2>Contact details </h2>
+      <h4>
+        <p>Phone Number: 505-354-2987</p>
+        <p>Email: unisourcehelp@gmail.com</p>
+        Visit our office: 305 Memorial Drive, Cambridge
+        </ul></h4>
+
   </body>
 </html>
