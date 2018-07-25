@@ -76,15 +76,23 @@ class HomeHandler(webapp2.RequestHandler):
 class HomeHander2(webapp2.RequestHandler):
     def get(self):
         home2_template = jinja_env.get_template("templates/homepage2.html")
+        self.response.write(home_template.render())
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template("templates/listpage.html")
-        self.response.write(list_template.render())
+        all_students = Student.query().fetch()
+        self.response.write(list_template.render(
+        {
+            "all_students": all_students
+        }
+        ))
+
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         pass
+
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         searchTemplate = jinja_env.get_template("")
