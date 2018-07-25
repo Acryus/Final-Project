@@ -88,7 +88,6 @@ class ListHandler(webapp2.RequestHandler):
         }
         ))
 
-
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template("templates/profile.html")
