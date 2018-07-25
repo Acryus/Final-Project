@@ -17,9 +17,9 @@ class WelcomeHandler(webapp2.RequestHandler):
         if user:
           email_address = user.nickname()
           cssi_user = Student.get_by_id(user.user_id())
-          signout_link_html = '<a href="%s">Sign Out</a>' % (
-              users.create_logout_url('/'))
-          homepage_link_html = "<a href = '/home'>Home Page</a>"
+          # signout_link_html = '<a href="%s">Sign Out</a>' % (
+          #     users.create_logout_url('/'))
+          # homepage_link_html = "<a href = '/home'>Home Page</a>"
           # If the user has previously been to our site, we greet them!
           if cssi_user:
             # self.response.write('''
@@ -68,29 +68,45 @@ class WelcomeHandler(webapp2.RequestHandler):
         self.response.write('Thanks for signing up, %s!' %
             cssi_user.firstName)
 
-
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template("templates/homepage.html")
         self.response.write(home_template.render( {"loginUrl" : users.create_login_url('/signup')}))
 
+class HomeHander2(webapp2.RequestHandler):
+    def get(self):
+        home2_template = jinja_env.get_template("templates/homepage2.html")
+        self.response.write(home_template.render())
+
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template("templates/listpage.html")
-        self.response.write(list_template.render())
+        all_students = Student.query().fetch()
+        self.response.write(list_template.render(
+        {
+            "all_students": all_students
+        }
+        ))
+
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
-        pass
+        profile_template = jinja_env.get_template("templates/profile.html")
+        all_students = Student.query().fetch()
+        self.response.write(list_template.render(
+            all_students = Student.query().fetch()
+        ))
+
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
-        signUpTemplate = jinja_env.get_template("")
-        html = signUpTemplate.render()
+        searchTemplate = jinja_env.get_template("")
+        html = searchTemplate.render()
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/signup', WelcomeHandler),
     ('/', HomeHandler),
+    ('/home', HomeHandler2),
     ('/list', ListHandler),
     ('/profile/' # + nameOfStudent
     ,ProfileHandler),
