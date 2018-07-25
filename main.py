@@ -73,6 +73,10 @@ class HomeHandler(webapp2.RequestHandler):
         home_template = jinja_env.get_template("templates/homepage.html")
         self.response.write(home_template.render( {"loginUrl" : users.create_login_url('/signup')}))
 
+class HomeHander2(webapp2.RequestHandler):
+    def get(self):
+        home2_template = jinja_env.get_template("templates/homepage2.html")
+
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template("templates/listpage.html")
