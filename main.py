@@ -65,18 +65,19 @@ class WelcomeHandler(webapp2.RequestHandler):
             description=self.request.get('desc'),
             id=user.user_id())
         cssi_user.put()
-        self.response.write('Thanks for signing up, %s!' %
-            cssi_user.firstName)
+        # self.response.write('Thanks for signing up, %s!' %
+        #     cssi_user.firstName)
+        self.redirect("/home")
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template("templates/homepage.html")
         self.response.write(home_template.render( {"loginUrl" : users.create_login_url('/signup')}))
 
-class HomeHander2(webapp2.RequestHandler):
+class HomeHandler2(webapp2.RequestHandler):
     def get(self):
         home2_template = jinja_env.get_template("templates/homepage2.html")
-        self.response.write(home_template.render())
+        self.response.write(home2_template.render())
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
@@ -93,7 +94,7 @@ class ProfileHandler(webapp2.RequestHandler):
         profile_template = jinja_env.get_template("templates/profile.html")
         all_students = Student.query().fetch()
         self.response.write(list_template.render(
-            all_students = Student.query().fetch()
+
         ))
 
 class SearchHandler(webapp2.RequestHandler):
