@@ -3,7 +3,6 @@
     <title>uniSource</title>
   </head>
   <body>
-    <form autocomplete="off" action="/HomeHandler">
       Welcome to our site!  Please sign up: <br>
   <style>
   * {
@@ -91,7 +90,7 @@
   </style>
 
 
-    <form autocomplete="off" action="/">
+    <form autocomplete="off" action="/" method=post>
       <dl>
 
       <dt>
@@ -103,7 +102,7 @@
 
       <dt>
         <p></p>
-        <label for "lastName">Last Name:</label>
+        <label for "last_name">Last Name:</label>
       </dt>
       <dd>
         <input id="last_name" name="last_name" class = "format" type="text">
@@ -112,7 +111,7 @@
 
 
       <dt>
-        <label for "state">State (of college):</label>
+        <label for "State">State (of college):</label>
       </dt>
       <dd>
         <input id="state" name="state" class = "autocomplete" type="text">
@@ -131,27 +130,6 @@
       <dd>
         <input id="major" name="major" class = "format" type="text">
       </dd>
-<p></p>
-      <dt>
-        <label for "strengths">Strengths:</label>
-      </dt>
-      <dd>
-        <div id="div">
-        <input id="strengths" name"Strengths" class = format type="text">
-        <button type="button" onclick= "addRow(div)" >+</button>
-      </div>
-      </dd>
-<p></p>
-            <dt>
-              <label for "Areas needing help">Areas needing help:</label>
-            </dt>
-            <dd>
-              <div id="div2">
-              <input id="AreasNeedingHelp" name"Areas needing help" class = format type="text">
-              <button type="button" onclick= "addRow(div2)" >+</button>
-            </div>
-            </dd>
-       <dt>
          <label for="description" class="format">Description - Tell Us More About Yourself:</label>
        </dt>
        <dd>
@@ -163,5 +141,5 @@
       <input type="submit" value="Sign Up!">
     </form>
   </body>
-  <script src="../static/createProfile.js"></script>
+<script src="../static/createProfile.js"></script>
 </html>
