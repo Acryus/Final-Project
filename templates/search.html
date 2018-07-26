@@ -99,12 +99,10 @@ body {
     </form>
 
       {% for student in all_students %}
-        <p>{{student.firstName + " " + student.lastName}} </p>
-        <p>College: {{student.college}}</p>
-        <p>Major: {{student.major}}</p>
-        <p>Email: {{student.email}}</p>
-        <p>Description: {{student.description}}</p>
-        Area of Interests:
+        <b><p>{{student.firstName + " " + student.lastName}} </p></b>
+        <h1>{{student.college}} , {{student.major}}</h1>
+        <p> {{student.email}} </p>
+         Area of Interests:
         {% for interest in interests %}
           <p>{{student.interests}}</p>
         {% endfor %}
@@ -115,6 +113,7 @@ body {
         </br>
       {% endfor %}
          </p>
+         <p>{{student.description}}</p>
   </div>
 
   <div class="card">

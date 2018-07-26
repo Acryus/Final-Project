@@ -72,81 +72,108 @@
     }
     </style>
 
+    <div class="header">
+      <font size="10">uniSource</font>
+      <h2> Need help? You found it!</h2>
+      <p><h3>Connecting peers for collaboration and a good time.</h3></p>
+    </div>
+
+    <div class="topnav">
+      <a href="createProfile.html">Search</a>
+      <a href="{{ loginUrl }}" style="float:right">Sign up/Sign in</a>
+    </div>
 
 
-    <form autocomplete="off" action="/signup" method=post>
-      <dl>
+    <div class="card">
+          <h2>How do you use uniSource? Lets get Started! </h2>
+          <form autocomplete="off" action="/signup" method=post>
+            <dl>
 
-      <dt>
-      <h4>  <label for "first_name">First Name:</label> </h4>
-      </dt>
-      <dd>
-        <input id="first_name" name="first_name" class = "format" type="text">
-      </dd>
-
-      <dt>
-<p></p>
-        <h4><label for "lastName">Last Name:</label></h4>
-      </dt>
-      <dd>
-        <input id="last_name" name="last_name" class = "format" type="text">
-      </dd>
-<p></p>
-
-
-      <dt>
-        <h4><label for "state">State (of college):</label></h4>
-      </dt>
-      <dd>
-        <input id="state" name="state" class = "autocomplete" type="text">
-      </dd>
-<p></p>
-      <dt>
-      <h4>  <label for "college">College:</label> </h4>
-      </dt>
-      <dd>
-        <input id="college" name="college" class = "autocomplete" type="text">
-      </dd>
-<p></p>
-      <dt>
-      <h4>  <label for "major">Major:</label></h4>
-      </dt>
-      <dd>
-        <input id="major" name="major" class = "format" type="text">
-      </dd>
-<p></p>
-<p></p>
-      <dt>
-        <label for "strengths">Strengths:</label>
-      </dt>
-      <dd>
-        <div id="div">
-        <input id="strengths" name="Strengths" class = format type="text">
-        <button type="button" onclick= "addRow(div)" >+</button>
-      </div>
-      </dd>
-<p></p>
             <dt>
-              <label for "Areas needing help">Areas needing help:</label>
+            <h4>  <label for "first_name">First Name:</label> </h4>
             </dt>
             <dd>
-              <div id="div2">
-              <input id="AreasNeedingHelp" name="Areas needing help" class = format type="text">
-              <button type="button" onclick= "add2Row(div2)" >+</button>
+              <input id="first_name" name="first_name" class = "format" type="text">
+            </dd>
+
+            <dt>
+      <p></p>
+              <h4><label for "lastName">Last Name:</label></h4>
+            </dt>
+            <dd>
+              <input id="last_name" name="last_name" class = "format" type="text">
+            </dd>
+      <p></p>
+
+
+            <dt>
+              <h4><label for "state">State (of college):</label></h4>
+            </dt>
+            <dd>
+              <input id="state" name="state" class = "autocomplete" type="text">
+            </dd>
+      <p></p>
+            <dt>
+            <h4>  <label for "college">College:</label> </h4>
+            </dt>
+            <dd>
+              <input id="college" name="college" class = "autocomplete" type="text">
+            </dd>
+      <p></p>
+            <dt>
+            <h4>  <label for "major">Major:</label></h4>
+            </dt>
+            <dd>
+              <input id="major" name="major" class = "format" type="text">
+            </dd>
+      <p></p>
+      <p></p>
+            <dt>
+              <label for "strengths">Strengths:</label>
+            </dt>
+            <dd>
+              <div id="div">
+              <input id="strengths" name="Strengths" class = format type="text">
+              <button type="button" onclick= "addRow(div)" >+</button>
             </div>
             </dd>
-       <dt>
+      <p></p>
+                  <dt>
+                    <label for "Areas needing help">Areas needing help:</label>
+                  </dt>
+                  <dd>
+                    <div id="div2">
+                    <input id="AreasNeedingHelp" name="Areas needing help" class = format type="text">
+                    <button type="button" onclick= "add2Row(div2)" >+</button>
+                  </div>
+                  </dd>
+             <dt>
 
-        <h4> <label for="description" class="format">Description - Tell Us More About Yourself:</label></h4>
-       </dt>
-       <dd>
-         <textarea rows="4" cols="100" id="description" class="profile_form" name="desc"></textarea>
-       </dd>
-      </dl>
+              <h4> <label for="description" class="format">Description - Tell Us More About Yourself:</label></h4>
+             </dt>
+             <dd>
+               <textarea rows="4" cols="100" id="description" class="profile_form" name="desc"></textarea>
+             </dd>
+            </dl>
 
-  <p></p>
-      <h4><input type="submit" value="Sign Up!"></h4>
-    </form>
+        <p></p>
+            <h4><input type="submit" value="Sign Up!"></h4>
+          </form>
+
+    </div>
+
+    <div class="card">
+          <h3>Having a problem?Tell us about it, so we can make your experience better!</h3>
+
+    <div class="footer">
+      <h2>Contact details </h2>
+      <h4>
+        <p>Phone Number: 505-354-2987</p>
+        <p>Email: unisourcehelp@gmail.com</p>
+        Visit our office: 305 Memorial Drive, Cambridge
+        </ul></h4>
+
+
   </body>
 <script src="../static/createProfile.js"></script>
 </html>
