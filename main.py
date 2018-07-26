@@ -84,7 +84,9 @@ class SearchHandler(webapp2.RequestHandler):
         searchTemplate = jinja_env.get_template("templates/search.html")
         all_students = Student.query().fetch()
         html = searchTemplate.render(
+        {
             "all_students": all_students
+        }
         )
         self.response.write(html)
 
