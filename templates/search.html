@@ -99,14 +99,19 @@ body {
 
     </form>
 
-
       {% for student in all_students %}
         <p>{{student.firstName + " " + student.lastName}} </p>
         <p>College: {{student.college}}</p>
         <p>Major: {{student.major}}</p>
         <p>Description{{student.description}}</p>
-        <p>{{student.interests}}</p>
-        <p>{{student.help}}</p>
+        Area of Interests:
+        {% for interest in interests %}
+          <p>{{student.interests}}</p>
+        {% endfor %}
+        Areas of Weaknesses:
+        {% for weakness in help %}
+            <p>{{student.help}}</p>
+        {% endfor %}
         </br>
       {% endfor %}
          </p>
