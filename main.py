@@ -79,36 +79,18 @@ class HomeHandler2(webapp2.RequestHandler):
         home2_template = jinja_env.get_template("templates/homepage2.html")
         self.response.write(home2_template.render())
 
-class ListHandler(webapp2.RequestHandler):
-    def get(self):
-        list_template = jinja_env.get_template("templates/listpage.html")
-        all_students = Student.query().fetch()
-        self.response.write(list_template.render(
-        {
-            "all_students": all_students
-        }
-        ))
-
-class ProfileHandler(webapp2.RequestHandler):
-    def get(self):
-        profile_template = jinja_env.get_template("templates/profile.html")
-        all_students = Student.query().fetch()
-        self.response.write(list_template.render(
-
-        ))
-
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
-        searchTemplate = jinja_env.get_template("")
-        html = searchTemplate.render()
+        searchTemplate = jinja_env.get_template("templates/search.html")
+        all_students = Student.query().fetch()
+        html = searchTemplate.render(
+            "all_students": all_students
+        )
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/signup', WelcomeHandler),
     ('/', HomeHandler),
     ('/home', HomeHandler2),
-    ('/list', ListHandler),
-    ('/profile/' # + nameOfStudent
-    ,ProfileHandler),
     ("/search", SearchHandler),
 ], debug=True)

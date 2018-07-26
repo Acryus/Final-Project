@@ -71,7 +71,7 @@ body {
 <body>
   <div class="header">
     <font size="10">uniSource</font>
-    <h2> Great! You've made your profile! You're just a Few steps away from finding the help you need!</h2>
+    <h2> Looking for help? You found it!</h2>
     <p><h3>Connecting peers for collaboration and a good time.</h3></p>
   </div>
 
@@ -86,21 +86,30 @@ body {
     <form>
       <dl>
         <dt>
+
+          <h1>Let's find your person...:</h1>
           <label for "State">State</label>
         </dt>
         <dd>
-          <input id="state" name="state" class = "autocomplete" type="text">
+          <h3><input id="state" name="state" class = "autocomplete" type="text"></h3>
         </dd>
-        <dt>
-          <label for "University">University</label>
-        </dt>
-        <dd>
-          <input id="college" name="college" class = "autocomplete" type="text">
-        </dd>
+
 
       </dl>
 
     </form>
+
+
+      {% for student in all_students %}
+        <p>{{student.firstName + " " + student.lastName}} </p>
+        <p>College: {{student.college}}</p>
+        <p>Major: {{student.major}}</p>
+        <p>Description{{student.description}}</p>
+        <p>{{student.interests}}</p>
+        <p>{{student.help}}</p>
+        </br>
+      {% endfor %}
+         </p>
   </div>
 
   <div class="card">

@@ -3,6 +3,77 @@
     <title>uniSource</title>
   </head>
   <body>
+
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+        font-family: Jazz LET, fantasy;
+        padding: 10px;
+        background: #d5f4e6;
+    }
+    .header {
+        font-family: Jazz LET, fantasy;
+        padding: 30px;
+        text-align: center;
+        background:#80ced6	;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #618685;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: darkgreen;
+    }
+
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+
+    .footer {
+        padding: 20px;
+        text-align: center;
+        background: #80ced6;
+        margin-top: 20px
+        ;
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .leftcolumn, .rightcolumn {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+
+    @media screen and (max-width: 400px) {
+        .topnav a {
+            float: none;
+            width: 100%;
+        }
+    }
+    </style>
+
+
+
     <form autocomplete="off" action="/signup" method=post>
       <dl>
 
