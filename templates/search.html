@@ -93,7 +93,7 @@ body {
         <dd>
           <h3><input id="state" name="state" class = "autocomplete" type="text"></h3>
         </dd>
-      
+
 
       </dl>
 
@@ -102,9 +102,9 @@ body {
 
       {% for student in all_students %}
         <p>{{student.firstName + " " + student.lastName}} </p>
-        <p>{{student.college}}</p>
-        <p>{{student.major}}</p>
-        <p>{{student.description}}</p>
+        <p>College: {{student.college}}</p>
+        <p>Major: {{student.major}}</p>
+        <p>Description{{student.description}}</p>
         <p>{{student.interests}}</p>
         <p>{{student.help}}</p>
         </br>
