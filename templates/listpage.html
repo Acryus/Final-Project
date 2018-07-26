@@ -85,9 +85,9 @@
 
     <div class="card">
       <h1>Let's find your person.....:</h1>
-      {% for student in all_students %}
-        <p>{{student.name}} </p>
-        <p>{{student.description}} </p>
+      <h1>{% for student in all_students %}</h1>
+        <p>{{student.firstName}} </p>
+        <h1><p>{{student.description}} </p></h1>
         </br>
       {% endfor %}
          </p>
