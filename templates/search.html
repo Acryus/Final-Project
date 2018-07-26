@@ -91,7 +91,7 @@ body {
         </dt>
         <dd>
           <h3><input id="state" name="state" class = "autocomplete" type="text"></h3>
-            <h4><input type="submit" value="Search"></h4>
+          <input type="submit" value="Search">
         </dd>
       </dl>
     </form>
@@ -107,11 +107,10 @@ body {
         Areas of Weaknesses:
         {% for weakness in help %}
             <p>{{student.help}}</p>
+        <p>{{student.description}}</p>
         {% endfor %}
         </br>
       {% endfor %}
-         </p>
-         <p>{{student.description}}</p>
   </div>
 
   <div class="card">

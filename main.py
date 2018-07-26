@@ -64,7 +64,7 @@ class SearchHandler(webapp2.RequestHandler):
         searchTemplate = jinja_env.get_template("templates/search.html")
         if self.request.get("state") == "":
             students = Student.query().fetch()
-        else
+        else:
             students = Student.query().filter(Student.state == self.request.get("state")).fetch()
 
         html = searchTemplate.render(
