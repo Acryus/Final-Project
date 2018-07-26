@@ -56,6 +56,26 @@ class WelcomeHandler(webapp2.RequestHandler):
           # You shouldn't be able to get here without being logged in
           self.error(500)
           return
+        strengthList = []
+        x = 1
+        while(True):
+            interest = self.request.get('strengths' + str(x))
+            if not len(interest):
+                break
+            strengthList.append(interest)
+            x+=1
+
+        areas_needing_help_list = []
+        y = 1
+        while(True):
+            help_area = self.request.get('Areas_needing_help' + str(y))
+            if not len(help_area):
+                break
+            areas_needing_help_list.append(help_area)
+            y += 1
+
+
+
         cssi_user = Student(
             firstName=self.request.get('first_name'),
             lastName=self.request.get('last_name'),
@@ -63,11 +83,13 @@ class WelcomeHandler(webapp2.RequestHandler):
             state=self.request.get('state'),
             major=self.request.get('major'),
             description=self.request.get('desc'),
+            interests=strengthList,
+            help=areas_needing_help_list,
             id=user.user_id())
-        cssi_user.put()
+        key = cssi_user.put()
         # self.response.write('Thanks for signing up, %s!' %
         #     cssi_user.firstName)
-        self.redirect("/home")
+        return webapp2.redirect("/home?key=" + str(key))
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -76,16 +98,21 @@ class HomeHandler(webapp2.RequestHandler):
 
 class HomeHandler2(webapp2.RequestHandler):
     def get(self):
+        print(self.request)
         home2_template = jinja_env.get_template("templates/homepage2.html")
-        self.response.write(home2_template.render())
+        current_user = users.get_current_user()
+        cssi_user = Student.get_by_id(current_user.user_id())
+        self.response.write(home2_template.render({
+        "User": cssi_user.firstName
+        }))
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         searchTemplate = jinja_env.get_template("templates/search.html")
         all_students = Student.query().fetch()
-        html = searchTemplate.render(
+        html = searchTemplate.render({
             "all_students": all_students
-        )
+        })
         self.response.write(html)
 
 app = webapp2.WSGIApplication([

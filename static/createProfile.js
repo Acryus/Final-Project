@@ -132,25 +132,27 @@ document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
 }
-x = 1;
-y = 1;
+x = 2;
+y = 2;
 function addRow(){
   var str = document.getElementById('div');
-  if(x == 1){
-    str.innerHTML += "<br > <input type='text' id='tst"+ x++ +"'><br >";
+  if(x == 2){
+    str.innerHTML += "<br > <input type='text' id='strengths"+ x +"' name='strengths" + x + "'><br >";
   }
   else{
-     str.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+     str.innerHTML += "<input type='text' id='strengths"+ x +"' name='strengths" + x + "'><br >";
    }
+   x++
 }
 function add2Row(){
   var weak = document.getElementById('div2');
-  if(y == 1){
-    weak.innerHTML += "<br > <input type='text' id='tst"+ y++ +"'><br >";
+  if(y == 2){
+    weak.innerHTML += "<br > <input type='text' id='AreasNeedingHelp" + y + "' name='Areas_needing_help" + y + "'><br >";
   }
   else{
-     weak.innerHTML += "<input type='text' id='tst"+ y++ +"'><br >";
+     weak.innerHTML += "<input type='text' id='AreasNeedingHelp" + y + "' name='Areas_needing_help" + y + "'><br >";
    }
+   y++;
  }
 
 let massuni = document.querySelector('#college');
