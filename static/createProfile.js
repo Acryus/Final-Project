@@ -134,16 +134,24 @@ document.addEventListener("click", function (e) {
 }
 x = 1;
 y = 1;
-/*function addRow(){
+function addRow(){
   var str = document.getElementById('div');
-  var weak = document.getElementById('div2');
   if(x == 1){
     str.innerHTML += "<br > <input type='text' id='tst"+ x++ +"'><br >";
   }
   else{
      str.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
    }
-}*/
+}
+function add2Row(){
+  var weak = document.getElementById('div2');
+  if(y == 1){
+    weak.innerHTML += "<br > <input type='text' id='tst"+ y++ +"'><br >";
+  }
+  else{
+     weak.innerHTML += "<input type='text' id='tst"+ y++ +"'><br >";
+   }
+ }
 
 let massuni = document.querySelector('#college');
 let UsState = document.querySelector('#state');
