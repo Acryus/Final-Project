@@ -17,32 +17,14 @@ class WelcomeHandler(webapp2.RequestHandler):
         if user:
           email_address = user.nickname()
           cssi_user = Student.get_by_id(user.user_id())
-          # signout_link_html = '<a href="%s">Sign Out</a>' % (
-          #     users.create_logout_url('/'))
-          # homepage_link_html = "<a href = '/home'>Home Page</a>"
+
           # If the user has previously been to our site, we greet them!
           if cssi_user:
-            # self.response.write('''
-            #     Welcome %s %s (%s)! <br> %s <br> %s''' % (
-            #       cssi_user.firstName,
-            #       cssi_user.lastName,
-            #       email_address,
-            #       signout_link_html,
-            #       homepage_link_html
-            #       ))
             return webapp2.redirect("/home")
           # If the user hasn't been to our site, we ask them to sign up
           else:
               template = jinja_env.get_template("templates/createProfile.html")
               self.response.write(template.render())
-              #'first_name' : Student.firstName,
-             # "last_name" : Student.lastName,
-             # "state": Student.state,
-            #  "major": Student.major,
-            #  "desc": Student.description#,
-              ##"interests": interests,
-              ##"help": help
-            #  }))
         # Otherwise, the user isn't logged in!
         else:
           self.response.write('''
@@ -65,8 +47,6 @@ class WelcomeHandler(webapp2.RequestHandler):
             description=self.request.get('desc'),
             id=user.user_id())
         cssi_user.put()
-        # self.response.write('Thanks for signing up, %s!' %
-        #     cssi_user.firstName)
         self.redirect("/home")
 
 class HomeHandler(webapp2.RequestHandler):
@@ -82,10 +62,14 @@ class HomeHandler2(webapp2.RequestHandler):
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         searchTemplate = jinja_env.get_template("templates/search.html")
-        all_students = Student.query().fetch()
+        if self.request.get("state") == "":
+            students = Student.query().fetch()
+        else
+            students = Student.query().filter(Student.state == self.request.get("state")).fetch()
+
         html = searchTemplate.render(
         {
-            "all_students": all_students
+            "students": students
         }
         )
         self.response.write(html)

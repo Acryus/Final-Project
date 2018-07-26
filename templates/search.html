@@ -83,26 +83,24 @@ body {
 
 
   <div class="card">
-    <form>
+    <form action = "/search">
       <dl>
         <dt>
-
-          <h1>Let's find your person...:</h1>
+          <h1>Let's find your person...</h1>
           <label for "State">State</label>
         </dt>
         <dd>
           <h3><input id="state" name="state" class = "autocomplete" type="text"></h3>
+            <h4><input type="submit" value="Search"></h4>
         </dd>
-
       </dl>
-
     </form>
 
-      {% for student in all_students %}
+      {% for student in students %}
         <b><p>{{student.firstName + " " + student.lastName}} </p></b>
         <h1>{{student.college}} , {{student.major}}</h1>
         <p> {{student.email}} </p>
-         Area of Interests:
+        Area of Interests:
         {% for interest in interests %}
           <p>{{student.interests}}</p>
         {% endfor %}
