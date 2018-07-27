@@ -99,17 +99,17 @@ body {
       {% for student in students %}
       <p>_____________________________________________________________________</p>
         <b><p><h3>{{student.firstName + " " + student.lastName}} </h3></p></b>
-        {{student.college}} , {{student.major}}
-        <p> {{student.email_address}} </p>
-        <b>Area of Interests:</b>
+        <h4>{{student.college}} , {{student.major}}</h4>
+        <p>{{student.email_address}} + "@gmail.com"</p>
+        <u>Area of Interests:</u>
         {% for interest in student.interests %}
           <p>{{interest}}</p>
         {% endfor %}
-        <b>Areas of Weaknesses:</b>
+        <u>Areas of Weaknesses:</u>
         {% for weakness in student.help %}
             <p>{{weakness}}</p>
         {% endfor %}
-        <p> A few things abput me </p>
+        <p><u> A few things about me:</u> </p>
         {{student.description}}</p>
         <p>_____________________________________________________________________</p>
       {% endfor %}
