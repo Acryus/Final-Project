@@ -7,12 +7,12 @@
 }
 
 body {
-    font-family: Jazz LET, fantasy;
-    padding: 10px;
+    font-family: Palatino, URW;
+    padding: 30px;
     background: #d5f4e6;
 }
 .header {
-    font-family: Jazz LET, fantasy;
+    font-family: Palatino, URW;
     padding: 30px;
     text-align: center;
     background:#80ced6	;
@@ -76,44 +76,50 @@ body {
   </div>
 
   <div class="topnav">
-    <a href="listpage.html">Search</a>
-    <a href="#" style="float:right"> Welcome, User!</a>
+    <a href="/search">Search</a>
+    <a href="/home">Return to home</a>
+    <a href="#" style="float:right"> Welcome, {{User}}!</a>
 
   </div>
 
 
   <div class="card">
-    <form>
+    <form action = "/search">
       <dl>
         <dt>
-
-          <h1>Let's find your person...:</h1>
+          <h1>Let's find your person...</h1>
           <label for "State">State</label>
         </dt>
         <dd>
           <h3><input id="state" name="state" class = "autocomplete" type="text"></h3>
+          <input type="submit" value="Search">
         </dd>
-
-
       </dl>
-
     </form>
-
-
-      {% for student in all_students %}
-        <p>{{student.firstName + " " + student.lastName}} </p>
-        <p>College: {{student.college}}</p>
-        <p>Major: {{student.major}}</p>
-        <p>Description{{student.description}}</p>
-        <p>{{student.interests}}</p>
-        <p>{{student.help}}</p>
-        </br>
+      {% for student in students %}
+      <p>_____________________________________________________________________</p>
+        <b><p><h3>{{student.firstName + " " + student.lastName}} </h3></p></b>
+        {{student.college}} , {{student.major}}
+        <p> {{student.email_address}} </p>
+        <b>Area of Interests:</b>
+        {% for interest in student.interests %}
+          <p>{{interest}}</p>
+        {% endfor %}
+        <b>Areas of Weaknesses:</b>
+        {% for weakness in student.help %}
+            <p>{{weakness}}</p>
+        {% endfor %}
+        <p> A few things abput me </p>
+        {{student.description}}</p>
+        <p>_____________________________________________________________________</p>
       {% endfor %}
-         </p>
+      <p></p>
+
+
   </div>
 
   <div class="card">
-        <h3>Having a problem?Tell us about it, so we can make your experience better!</h3>
+        <h3>Having a problem? Tell us about it!</h3>
 
   <div class="footer">
     <h2>Contact details </h2>

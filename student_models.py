@@ -9,3 +9,4 @@ class Student(ndb.Model):
     description = ndb.StringProperty(required=True)
     interests = ndb.StringProperty(repeated=True)
     help = ndb.StringProperty(repeated=True)
+    email_address = ndb.StringProperty(required=True)
